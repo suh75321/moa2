@@ -34,7 +34,7 @@ class LikeServiceImpl(
                 .orElseThrow { throw ModelNotFoundException("User", providerId) }
 
         val existingLike = likeRepository.findByProductAndSocialUser(product, user)
-        if (existingLike != null) {
+        if (existingLike != null) {//existingLike는 이미 좋아요를 했는지 알아봄
             throw IllegalArgumentException("이미 좋아요를 누른 상품입니다")
         }
 

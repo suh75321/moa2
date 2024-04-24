@@ -36,7 +36,9 @@ class ProductServiceImpl(
 
             ProductResponse(product)
         }
-    }
+    }//- `findAllByProductIdAndDeletedAtIsNull` 를 추가해 리뷰와 연결하고`reviews.isNotEmpty()`를 통해 리뷰가
+    // 존재하는지 확인. 만약 리뷰가 하나라도 있다면, `reviews.map { it.rating }`을 통해 각 리뷰의 평점을 추출하고,
+    // `.average()`를 사용하여 이 평점들의 평균 값을 계산
 
     @Transactional
     override fun getProductById(productId: Long): ProductResponse {
